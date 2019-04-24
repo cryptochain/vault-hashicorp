@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  vault-inmemory:
+    cap_add:
+      - IPC_LOCK
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: root-token
+    image: vault:latest
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100k"
+        max-file: "10"
+    ports:
+      - 8200:8200
+
