@@ -5,7 +5,7 @@ services:
       - IPC_LOCK
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: root-token
-      VAULT_LOCAL_CONFIG: {"backend": {"file": {"path": "/vault/file"}}}
+      VAULT_LOCAL_CONFIG: '{"backend": {"file": {"path": "/vault/file"}}}'
     image: vault:latest
     logging:
       driver: "json-file"
