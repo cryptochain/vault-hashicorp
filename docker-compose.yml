@@ -5,6 +5,7 @@ services:
       - IPC_LOCK
     environment:
       VAULT_DEV_ROOT_TOKEN_ID: root-token
+      VAULT_LOCAL_CONFIG: {"backend": {"file": {"path": "/vault/file"}}}
     image: vault:latest
     logging:
       driver: "json-file"
@@ -13,4 +14,8 @@ services:
         max-file: "10"
     ports:
       - 8200:8200
+    volumes:
+      - vault-testing-data:/vault/file
 
+volumes:
+  vault-testing-data:
